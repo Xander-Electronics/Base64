@@ -12,7 +12,7 @@ Base64	KEYWORD1
 # Methods and Functions (KEYWORD2)
 #######################################
 
-encodeKEYWORD2
+encode	KEYWORD2
 decode	KEYWORD2
 encodedLength	KEYWORD2
 decodedLength	KEYWORD2

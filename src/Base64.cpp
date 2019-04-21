@@ -8,7 +8,12 @@ This library is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 #include "Base64.h"
 #include <Arduino.h>
+#if (defined(__AVR__))
 #include <avr/pgmspace.h>
+#else
+#include <pgmspace.h>
+#endif
+
 const char PROGMEM _Base64AlphabetTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 		"abcdefghijklmnopqrstuvwxyz"
 		"0123456789+/";

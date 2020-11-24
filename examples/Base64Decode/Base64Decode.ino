@@ -22,7 +22,7 @@ void setup()
 
   // encoding
   char inputString[] = "QmFzZTY0RGVjb2RlRXhhbXBsZQA=";
-  int inputStringLength = sizeof(inputString);
+  int inputStringLength = strlen(inputString);
 
   Serial.print("Input string is:\t");
   Serial.println(inputString);

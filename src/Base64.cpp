@@ -8,7 +8,7 @@ This library is distributed in the hope that it will be useful, but WITHOUT ANY 
 
 #include "Base64.h"
 #include <Arduino.h>
-#if (defined(__AVR__))
+#if (defined(__AVR__) || defined(ARDUINO_ARCH_SAMD) || defined(ARDUINO_ARCH_SAM))
 #include <avr/pgmspace.h>
 #else
 #include <pgmspace.h>

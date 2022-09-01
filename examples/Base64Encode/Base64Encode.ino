@@ -30,7 +30,7 @@ void setup()
   Serial.println();
 
   int encodedLength = Base64.encodedLength(inputStringLength);
-  char encodedString[encodedLength];
+  char encodedString[encodedLength + 1];
   Base64.encode(encodedString, inputString, inputStringLength);
   Serial.print("Encoded string is:\t");
   Serial.println(encodedString);

@@ -1,5 +1,5 @@
 /*
-Copyright (C) 2016 Arturo Guadalupi. All right reserved.
+Copyright (C) 2016-2024 Xander Electronics. All right reserved.
 
 This library is free software; you can redistribute it and/or modify it under the terms of the GNU Lesser General Public License as published by the Free Software Foundation; either version 2.1 of the License, or (at your option) any later version.
 
@@ -11,7 +11,9 @@ This library is distributed in the hope that it will be useful, but WITHOUT ANY 
 #if (defined(__AVR__) || defined(ARDUINO_ARCH_SAMD) || defined(ARDUINO_ARCH_SAM))
 #include <avr/pgmspace.h>
 #else
+#if (!defined(ARDUINO_UNOR4_WIFI)) && (!defined(ARDUINO_UNOR4_MINIMA))
 #include <pgmspace.h>
+#endif
 #endif
 
 const char PROGMEM _Base64AlphabetTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"

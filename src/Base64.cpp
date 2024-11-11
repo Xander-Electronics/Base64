@@ -11,7 +11,7 @@ This library is distributed in the hope that it will be useful, but WITHOUT ANY 
 #if (defined(__AVR__) || defined(ARDUINO_ARCH_SAMD) || defined(ARDUINO_ARCH_SAM))
 #include <avr/pgmspace.h>
 #else
-#if (!defined(ARDUINO_UNOR4_WIFI)) && (!defined(ARDUINO_UNOR4_MINIMA))
+#if (!defined(ARDUINO_UNOR4_WIFI)) && (!defined(ARDUINO_UNOR4_MINIMA)) && (!defined(ARDUINO_ARCH_MBED))
 #include <pgmspace.h>
 #endif
 #endif

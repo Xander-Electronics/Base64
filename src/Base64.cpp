@@ -20,7 +20,7 @@ const char PROGMEM _Base64AlphabetTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 		"abcdefghijklmnopqrstuvwxyz"
 		"0123456789+/";
 
-int Base64Class::encode(char *output, char *input, int inputLength) {
+int Base64Class::encode(char *output, const char *input, int inputLength) {
 	int i = 0, j = 0;
 	int encodedLength = 0;
 	unsigned char A3[3];
@@ -58,7 +58,7 @@ int Base64Class::encode(char *output, char *input, int inputLength) {
 	return encodedLength;
 }
 
-int Base64Class::decode(char * output, char * input, int inputLength) {
+int Base64Class::decode(char * output, const char * input, int inputLength) {
 	int i = 0, j = 0;
 	int decodedLength = 0;
 	unsigned char A3[3];
@@ -109,7 +109,7 @@ int Base64Class::encodedLength(int plainLength) {
 	return (n + 2 - ((n + 2) % 3)) / 3 * 4;
 }
 
-int Base64Class::decodedLength(char * input, int inputLength) {
+int Base64Class::decodedLength(const char * input, int inputLength) {
 	int i = 0;
 	int numEq = 0;
 	for(i = inputLength - 1; input[i] == '='; i--) {
@@ -120,14 +120,14 @@ int Base64Class::decodedLength(char * input, int inputLength) {
 }
 
 //Private utility functions
-inline void Base64Class::fromA3ToA4(unsigned char * A4, unsigned char * A3) {
+inline void Base64Class::fromA3ToA4(unsigned char * A4, const unsigned char * A3) {
 	A4[0] = (A3[0] & 0xfc) >> 2;
 	A4[1] = ((A3[0] & 0x03) << 4) + ((A3[1] & 0xf0) >> 4);
 	A4[2] = ((A3[1] & 0x0f) << 2) + ((A3[2] & 0xc0) >> 6);
 	A4[3] = (A3[2] & 0x3f);
 }
 
-inline void Base64Class::fromA4ToA3(unsigned char * A3, unsigned char * A4) {
+inline void Base64Class::fromA4ToA3(unsigned char * A3, const unsigned char * A4) {
 	A3[0] = (A4[0] << 2) + ((A4[1] & 0x30) >> 4);
 	A3[1] = ((A4[1] & 0xf) << 4) + ((A4[2] & 0x3c) >> 2);
 	A3[2] = ((A4[2] & 0x3) << 6) + A4[3];

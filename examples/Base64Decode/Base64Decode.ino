@@ -28,16 +28,21 @@ void setup()
   Serial.println(inputString);
 
   Serial.println();
-
   int decodedLength = Base64.decodedLength(inputString, inputStringLength);
-  char decodedString[decodedLength + 1];
-  Base64.decode(decodedString, inputString, inputStringLength);
-  Serial.print("Decoded string is:\t");
-  Serial.println(decodedString);
+  if (decodedLength > 0)
+  {
+    char decodedString[decodedLength + 1];
+    Base64.decode(decodedString, inputString, inputStringLength);
+    Serial.print("Decoded string is:\t");
+    Serial.println(decodedString);
+  }
+  else
+  {
+    Serial.println("Invalid input string");
+  }
 }
 
 
 void loop() {
 
 }
-
